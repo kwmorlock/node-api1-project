@@ -53,7 +53,18 @@ const oldLength = kitties.length
 server.put("/api/users/:id", function (req, res) {
     const id = req.params.id;
 const kitty = kitties.find(kitty => kitty.id === id)
-if(!req.body.name || !req.body.bio)
+if(!req.body.name || !req.body.bio) {
+
+res.status(400).json({errorMessage: "Please provide name and bio for the user."})
+} else if(){
+
+
+    res.status(404).json({message: "The user with the specified ID does not exist."})
+} else {
+
+    res.status(200).json(kitties);
+}
+
 })
 
 server.listen(8000, () => console.log("\n== API is up ==\n"));
