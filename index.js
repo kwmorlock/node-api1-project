@@ -50,8 +50,10 @@ const oldLength = kitties.length
 //   res.status(200).json(kitties);
 });
 
-server.patch("/api/users/:id", function (req, res) {
+server.put("/api/users/:id", function (req, res) {
     const id = req.params.id;
+const kitty = kitties.find(kitty => kitty.id === id)
+if(!req.body.name || !req.body.bio)
 })
 
 server.listen(8000, () => console.log("\n== API is up ==\n"));
