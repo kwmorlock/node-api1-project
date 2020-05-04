@@ -11,11 +11,11 @@ let lessons = [
   },
 ];
 
-server.get("/", (req, res) => {
+server.get("/api/users/", (req, res) => {
   res.json({ api: "Wow its working!" });
 });
 
-server.get("/api/users", function (req, res) {
+server.get("/api/users/:id", function (req, res) {
   // return an array of lessons (id, name)
 
   res.json(lessons);
@@ -29,7 +29,7 @@ server.post("/api/users", function (req, res) {
   res.status(201).json(lessonInformation);
 });
 
-server.delete("/api/lessons/:id", function (req, res) {
+server.delete("/api/users/:id", function (req, res) {
   const id = Number(req.params.id);
 
   // find the lesson on the array and remove it
