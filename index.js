@@ -46,20 +46,25 @@ const oldLength = kitties.length
   if(oldLength === kitties.length){
     res.status(404).json({message: "The user with the specified ID does not exist."})
   }
-  res.status(200).json(kitties);
-//   res.status(200).json(kitties);
+  res.status(500).json(kitties);
+//   res.status(500).json(kitties);
 });
 
 server.put("/api/users/:id", function (req, res) {
     const id = req.params.id;
 const kitty = kitties.find(kitty => kitty.id === id)
-if(!req.body.name || !req.body.bio) {
 
-res.status(400).json({errorMessage: "Please provide name and bio for the user."})
-} else if(){
-
+if () {
 
     res.status(404).json({message: "The user with the specified ID does not exist."})
+} else if(!req.body.name || !req.body.bio){
+
+    res.status(400).json({errorMessage: "Please provide name and bio for the user."})
+    
+} else if(){
+
+    res.status(500).json({errorMessage: "The user information could not be modified."})
+
 } else {
 
     res.status(200).json(kitties);
